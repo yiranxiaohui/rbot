@@ -14,5 +14,8 @@ model = "qwen-plus"
 
 [proxy]
 enabled = false
+kind = "http"
 address = "xxx"
 port = 1080
+username = "xxx"
+password = "xxx"
