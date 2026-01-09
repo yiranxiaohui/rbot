@@ -16,7 +16,7 @@ RUN update-ca-certificates
 
 # 直接复制二进制（Distroless 已含 glibc 和 ca-certificates）
 COPY --from=builder /app/target/release/rbot /app/rbot
-COPY --from=builder /app/config.toml /app/rbot
+COPY --from=builder /app/config.toml /app/config.toml
 
 RUN chmod +777 /app/rbot
 
