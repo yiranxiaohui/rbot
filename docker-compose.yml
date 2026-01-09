@@ -1,6 +1,6 @@
 services:
   rbot:
-    image: docker.yunnet.top/all/hub:latest
+    image: docker.yunnet.top/all/rbot:latest
     restart: always
     volumes:
       - ./config.toml:/app/config.toml

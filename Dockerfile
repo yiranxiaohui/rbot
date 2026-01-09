@@ -18,6 +18,8 @@ RUN update-ca-certificates
 COPY --from=builder /app/target/release/rbot /app/rbot
 COPY --from=builder /app/config.toml /app/rbot
 
+RUN chmod +777 /app/rbot
+
 WORKDIR /app
 
 ENTRYPOINT ["./rbot"]

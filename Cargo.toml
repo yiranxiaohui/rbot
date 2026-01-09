@@ -6,7 +6,7 @@ edition = "2024"
 [dependencies]
 axum = { version = "0.8.4", features = ["default"]}
 tokio = { version = "1.47.1", features = ["full"] }
-reqwest = { version = "0.13.1", features = ["default", "json", "socks", "query"] }
+reqwest = { version = "0.13.1", features = ["default", "json", "socks", "query", "rustls"] }
 serde_json = { version = "1.0.145", features = ["default"]}
 serde = { version = "1.0.226", features = ["derive"] }
 toml = { version = "0.9.6", features = ["default"]}
