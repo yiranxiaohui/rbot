@@ -2,5 +2,7 @@ services:
   rbot:
     image: docker.yunnet.top/all/rbot:latest
     restart: always
+    ports:
+      - "3300:3000"
     volumes:
       - ./config.toml:/app/config.toml

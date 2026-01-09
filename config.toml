@@ -7,10 +7,14 @@ app_id = 123
 client_secret = "xxx"
 interval = 1000
 
-[ai]
+[features.ai]
 base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 api_key = "xxx"
 model = "qwen-plus"
+
+[features.news]
+url = "https://60s.yunnet.top"
+
 
 [proxy]
 enabled = false
