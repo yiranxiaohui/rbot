@@ -1,6 +1,7 @@
 use log::error;
 use serde::{Deserialize, Serialize, Serializer};
 use serde_json::json;
+use uuid::Uuid;
 use crate::qq::token::{get_access_token_clone};
 use crate::utils::request::get_client;
 
@@ -38,8 +39,10 @@ impl Serialize for FileType {
 pub async fn upload_group_file(group_openid: String, file_url: String, file_type: FileType) -> Result<File, String> {
     let client = get_client().await;
     let url = format!("https://api.sgroup.qq.com/v2/groups/{group_openid}/files");
+    println!("url: {}", url);
+    println!("file_url: {}", file_url);
     let body = json!({
-            "file_type": file_type,
+            "file_type": 1,
             "url": file_url,
             "srv_send_msg": false
         });

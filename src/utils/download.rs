@@ -1,3 +1,6 @@
+use std::fs::create_dir_all;
+use std::{fs, path};
+use std::path::Path;
 use reqwest::Client;
 
 pub enum ImageType {
@@ -43,6 +46,13 @@ pub async fn download_image(url: String, output_path: String, output_format: Ima
     let image_bytes = response.bytes().await?;
 
     let image = image::load_from_memory(&image_bytes)?;
+
+    let path = Path::new(output_path.as_str());
+    if !path.exists() {
+        if let Some(parent) = path.parent() {
+            create_dir_all(parent).unwrap();
+        }
+    }
 
     image.save_with_format(output_path, output_format.to_image_format())?;
 

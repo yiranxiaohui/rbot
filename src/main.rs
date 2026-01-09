@@ -22,6 +22,7 @@ async fn main() {
     let app = Router::new()
         .route("/", get(|| async { "Hello, World!" }))
         .nest_service("/resources", ServeDir::new("resources"))
+        .nest_service("/check", ServeDir::new("resources/102149350.json"))
         .route("/qq/event", post(webhook));
     let listener = tokio::net::TcpListener::bind(SocketAddr::new(address, port)).await.unwrap();
     log::info!("服务器启动在 https://{}:{}", address, port);

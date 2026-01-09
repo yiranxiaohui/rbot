@@ -35,14 +35,13 @@ pub async fn get_news_response() -> Result<String, String>{
             let output_path = format!("resources/{}.png", formatted);
             match download_image(text.data.image, output_path.clone(), ImageType::Png).await {
                 Ok(_) => {
-                    return Ok(format!("https://rbot.yunnet.top/{}", output_path));
+                    Ok(format!("https://rbot.yunnet.top/{}", output_path))
                 }
                 Err(err) => {
                     error!("Failed to download image: {}", err);
-                    return Err("".to_string());
+                    Err("".to_string())
                 }
             }
-            // Ok(text.data.cover)
         }
         Err(_) => {
             Err("Failed to get news response".to_string())
